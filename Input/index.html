@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html >
+<html >
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+<style>
+.input
+{
+	max-width: 700px;
+	font-size: 2em;
+}
+.inputCol
+{
+	;
+}
+.simpleInput 
+{
+	width: 1em;
+	padding: 0 0em 3px 0.5em;
+	border: 0;
+	font-size: 1em;
+	border: 1px black solid;
+	border-radius: 10px;
+	outline: 0;
+}
+.sup, .sub {
+vertical-align: baseline;
+position: relative;
+font-size: 0.3em;
+bottom: 1.5em;
+}
+.sub {
+top: 0.4em;
+}
+.plus
+{
+	padding: 0 0.4em 0 0.4em;
+}
+.smallerInput
+{
+	font-size: 0.7em;
+	padding-left: 0;
+}
+</style>
+<script>
+"use strict";
+var inp, co_eff, power, span;
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+function ToTheNextTextBox(sender)
+{
+	alert (sender.ELEMENT_NODE);
+}
+
+function AutoWidth(sender)
+{
+	var w = sender.value.length * 1;
+	sender.style.width = Math.sqrt(w) + "em";
+	if (w == 0) sender.style.width = "1em";
+}
+
+function OnlyNumbers(sender)
+{
+	var key = window.event  || window.evt;
+	var key_code = key.keyCode;// || k
+	
+	//console.log(key_code);
+	var bol = (key_code > 47 && key_code < 58) || key_code == 8 || key_code == 46 || (key_code > 36 && key_code < 41) || key_code == 9;
+	if (!bol) key.preventDefault();
+	
+	//Jump to the next textbox
+	if (key_code == 9 || key_code == 32) ToTheNextTextBox(sender);
+}
+
+function setSimpleInputAttributes(sender)
+{
+	sender.className = "simpleInput";
+	sender.type = "text";
+	sender.setAttribute("maxlength", "9");
+	sender.setAttribute("oninput", "AutoWidth(this)");
+	sender.setAttribute("onkeypress", "OnlyNumbers(this)");
+	sender.setAttribute("onkeydown", "OnlyNumbers(this)");
+	sender.setAttribute("onkeyup", "OnlyNumbers(this)");
+}
+
+function Input(eType, degree)
+{
+	inp = document.getElementsByClassName("inputCol")[0];
+	inp.innerHTML = "";
+	co_eff = document.createElement("input");
+	setSimpleInputAttributes(co_eff);
+	
+	span = document.createElement("span");
+	span.innerText = "x";
+	
+	power = document.createElement("input");
+	
+	switch (eType)
+	{
+		case ("sin"):
+			co_eff.setAttribute("placeholder", "a");
+			var sinSpan = document.createElement("span");
+			sinSpan.innerText = "sin";
+			power.setAttribute("placeholder", "n");
+			setSimpleInputAttributes(power);
+			power.className += " sup";
+			
+			inp.appendChild(co_eff);
+			inp.appendChild(sinSpan);
+			inp.appendChild(power);
+			inp.appendChild(span);
+			break;
+		case ("cos"):
+			co_eff.setAttribute("placeholder", "a");
+			var sinSpan = document.createElement("span");
+			sinSpan.innerText = "cos";
+			power.setAttribute("placeholder", "n");
+			setSimpleInputAttributes(power);
+			power.className += " sup";
+			
+			inp.appendChild(co_eff);
+			inp.appendChild(sinSpan);
+			inp.appendChild(power);
+			inp.appendChild(span);
+			break;
+		case ("tan"):
+			co_eff.setAttribute("placeholder", "a");
+			var sinSpan = document.createElement("span");
+			sinSpan.innerText = "tan";
+			power.setAttribute("placeholder", "n");
+			setSimpleInputAttributes(power);
+			power.className += " sup";
+			
+			inp.appendChild(co_eff);
+			inp.appendChild(sinSpan);
+			inp.appendChild(power);
+			inp.appendChild(span);
+			break;
+		case ("polynomial"):
+			co_eff = new Array(degree);
+			span = new Array(degree);
+			power = new Array(degree);
+			var plus = new Array(degree);
+			
+			for (var i = 0; i <= degree; i++)
+			{
+				co_eff[i] = document.createElement("input");
+				co_eff[i].setAttribute("placeholder", alphabet[i]);
+				
+				power[i] = document.createElement("sup");
+				power[i].innerText = degree - i;
+				
+				span[i] = document.createElement("span");
+				span[i].innerText = "x";
+				
+				plus[i] = document.createElement("span");
+				plus[i].className = "plus"
+				plus[i].innerText = "+";
+				
+				if(i == degree) 
+				{
+					span[i].innerText = "";
+					plus[i].className = ""
+					plus[i].innerText = "";
+				}
+				if (degree - i == 1 || degree - i == 0) power[i].innerText = "";
+				
+				setSimpleInputAttributes(co_eff[i]);
+				
+				inp.appendChild(co_eff[i]);
+				inp.appendChild(span[i]);
+				inp.appendChild(power[i]);
+				inp.appendChild(plus[i]);
+			}
+	}
+}
+function Load()
+{
+	Input("polynomial", 1);
+}
+</script>
+</head>
+
+<body onload="Load()" onresize="">
+<table class="input" style="border: 3px #00CCFF double">
+	<tr>
+		<td class="yCol">y&nbsp;</td>
+		<td class="equalToCol">=&nbsp;</td>
+		<td class="inputCol"></td>
+	</tr>
+</table>
+<table class="input" style="border: 3px #00CCFF double">
+	<tr>
+		<td >from&nbsp;</td>
+		<td ><input type="text" class="simpleInput smallerInput" oninput="AutoWidth(this)" placeholder="x1" maxlength="6"/>&nbsp;</td>
+		<td >to&nbsp;</td>
+		<td ><input type="text" class="simpleInput smallerInput" oninput="AutoWidth(this)" placeholder="x2" maxlength="6"/></td>
+	</tr>
+</table>
+</body>
+
+</html>

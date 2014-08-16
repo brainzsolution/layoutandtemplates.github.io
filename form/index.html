@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html >
+<html >
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Form</title>
+<link rel="stylesheet" type="text/css" href="../Option/option.css" />
+<link rel="stylesheet" type="text/css" href="../Input/input.css" />
+<script src="../Input/input.js"></script>
+<style>
+body {background-color: black;}
+form .title
+{
+	border: 3px #00CCFF double;
+	box-align: center;
+}
+form .selectTitle
+{
+	margin-bottom: 10px;
+}
+form .inputTitle
+{
+	alignment-adjust: central;
+	alignment-baseline: central;
+}
+form label
+{
+	color: white;
+}
+
+form button
+{
+	width: 100%;
+	margin: 10px 0 0 0;
+	background-color: black;
+	color: white;
+	border-radius: 100px;
+	border-color: #00CCFF;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 3em;
+}
+</style>
+</head>
+
+<body onload="Load(this)">
+<form>
+	<label>Equation type</label>
+	<div class="selectTitle title">
+		<select class="select" onchange="GetSelection(this)">
+			<option class="header">Choose your equation</option>
+			<optgroup label="Polynomial">
+				<option value="cubic">y = ax3 + bx2 + cx + d</option>
+				<option value="quadratic">y = ax2 + bx + c</option>
+				<option value="linear">y = mx + c</option>
+			</optgroup>
+			<optgroup label="Trignometry">
+				<option value="sin">y = asinⁿө</option>
+				<option value="cos">y = acosⁿө</option>
+				<option value="tan">y = atanⁿө</option>
+			</optgroup>
+		</select>
+	</div>
+	
+	<label>Enter Function and Range on x-axis</label>
+	<div class="inputTitle title">
+		<table class="input">
+			<tr>
+				<td class="yCol">y&nbsp;</td>
+				<td class="equalToCol">=&nbsp;</td>
+				<td class="inputCol"></td>
+			</tr>
+		</table>
+		<table class="input">
+			<tr>
+				<td >from : &nbsp;</td>
+				<td ><input type="text" class="simpleInput smallerInput" oninput="AutoWidth(this)" placeholder="x1" maxlength="6"/>&nbsp;</td>
+				<td >to : &nbsp;</td>
+				<td ><input type="text" class="simpleInput smallerInput" oninput="AutoWidth(this)" placeholder="x2" maxlength="6"/></td>
+			</tr>
+		</table>
+	</div>
+	<button >Sketch</button>
+</form>
+</body>
+
+</html>

@@ -1,58 +1,107 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html >
+<html oncontextmenu="return false" >
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Option</title>
+<title>Untitled 1</title>
+<script src="graph.js" ></script>
+<script src="Input Frame/Frame.js"></script>
 <style>
-.select
+* {margin: 0;padding: 0;}
+html
 {
-	padding-left: 30px;
-	width: 300px;
-	background-color: transparent;
-	background-image: url('context.png');
-	background-position: 7.5px 4px;
-	background-repeat: no-repeat;
-	background-size: 15px 12px;
-	border-style: double;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
-.select:not(:hover)
-{
-	background-position: 7.5px 4px;
+body
+			{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
-.select:focus
+.menuFrame
 {
-	background-position: 15px 4px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(225, 225, 225, 0.6);
+	border: 0;
+	width: 100%;
+	height: 100%;
 }
-.select .header
+.lackSupport
 {
-	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #0099CC;
+	color: #000000;
+	font-size: large;
+	border: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
 }
-option
+.close
 {
-	border-bottom: thin black groove;
-	border-radius: 0 0 100px 0;
-	margin-bottom: 10px;
+	position: absolute;
+	right: 20px;
+	top: 19px;
+	background-color: rgba(56, 56, 180, 0.1);
+	padding: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24pt;
+	border: 1px solid black;
+	color: #FF0066;
+	border-top: 0;
+	border-right: 0;
+	border-radius: 0 0 0 100px;
+	outline: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+.close:hover
+{
+	color: #FF0000;
+}
+.close:active
+{
+	transform: scale(1.1, 1.1);
+	-webkit-transform: scale(1.1, 1.1);
+	-moz-transform: scale(1.1, 1.1);
+	-o-transform: scale(1.1, 1.1);
 }
 </style>
-<script >
+<script>
+
+function Load()
+{ 
+	Canvas.id = document.getElementById("graph");
+	Frame.id = document.getElementsByClassName("menuFrame")[0];
+	btn = document.getElementsByClassName("close")[0];
+	Resize();
+	var h = document.getElementsByTagName("html")[0];
+	h.addEventListener("mouseup", function(event)
+	{
+		if (event.button == 2) Frame.Open();
+	}, false);
+}
 
 </script>
 </head>
 
-<body onload="">
-	<select class="select">
-	<option class="header">Choose your equation</option>
-	<optgroup label="Polynomial">
-		<option value="cubic">y = ax3 + bx2 + cx + d</option>
-		<option value="quadratic">y = ax2 + bx + c</option>
-		<option value="linear">y = mx + c</option>
-	</optgroup>
-	<optgroup label="Trignometry">
-		<option value="sin">y = asinⁿө</option>
-		<option value="cos">y = acosⁿө</option>
-		<option value="tan">y = atanⁿө</option>
-	</optgroup>
-</select>
+<body onload="Load()" onresize="Resize()" >
+<canvas id="graph" style="background: black;cursor: col-resize">
+	<div class="lackSupport">This Device Lacks The Capability To Run Graph</div>
+</canvas>
+<iframe class="menuFrame" src="Input Frame/index.html" onmouseup="alert()" ></iframe>
+<button class="close" onclick="Frame.Close(this)">X</button>
 </body>
+
 </html>
