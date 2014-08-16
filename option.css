@@ -1,0 +1,39 @@
+﻿.select
+{
+	margin:5px 0 5px 10%;
+	padding-left: 30px;
+	width: 300px;
+	background-color: white;
+	background-image: url('context.png');
+	background-position: 7.5px 6px;
+	background-repeat: no-repeat;
+	background-size: 15px 12px;
+	border: 1px #999966 solid;
+	border-radius: 10px 0 0 10px;
+	-webkit-border-radius: 10px;
+	color: black;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 1em;
+	outline: 0;
+	transition: background-position 0.7s ease 0.3s;
+	-webkit-transition: background-position 0.1s ease 0.3s;
+	-o-transition: background-position 0.7s ease 0.3s;
+}
+.select:not(:hover)
+{
+	background-position: 7.5px 6px;
+}
+.select:focus
+{
+	background-position: 15px 6px;
+}
+.select .header
+{
+	display: none;
+}
+.select option
+{
+	border-bottom: thin black groove;
+	border-radius: 0 0 100px 0;
+	margin-bottom: 10px;
+}
