@@ -1,4 +1,4 @@
-﻿.select
+select
 {
 	margin:5px 0 5px 10%;
 	padding-left: 30px;
@@ -19,19 +19,19 @@
 	-webkit-transition: background-position 0.1s ease 0.3s;
 	-o-transition: background-position 0.7s ease 0.3s;
 }
-.select:not(:hover)
+select:not(:hover)
 {
 	background-position: 7.5px 6px;
 }
-.select:focus
+select:focus
 {
 	background-position: 15px 6px;
 }
-.select .header
+select .header
 {
 	display: none;
 }
-.select option
+select option
 {
 	border-bottom: thin black groove;
 	border-radius: 0 0 100px 0;
