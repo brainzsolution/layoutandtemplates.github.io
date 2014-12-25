@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Unilag Materials</title>
+
+<link rel="stylesheet" type="text/css" href="../universtymaterials.css" />
+<script type="text/javascript" src="../universitymaterials.js"></script>
+
+<script>
+function List_Click(sender, f)
+{
+	Faculty.GetUserPrefrence(f);
+}
+</script>
+
+
+</head>
+
+<body>
+<div class="header">
+	<div class="title">Select Faculty</div>
+	<div class="marker">
+		<div class="marker_school"><a href="../index.html">University of lagos<span class="top_img">^</a></div>
+	</div>
+	<div class="rule"></div>
+</div>
+<div class="container">
+	<ul class="contained_list">
+		<li><a href="medicine/year1/index.html">College Of Medicine</a></li>
+		<li><a href="bissadd/year1/index.html">Faculty Of Business Administration</a></li>
+		<li><a href="engineering/year1/index.html">Faculty Of Education</a></li>
+		<li><a href="engineering/year1/index.html">Faculty Of Engineering</a></li>
+		<li><a href="bissadd/year1/index.html">Faculty Of Environmental Science</a></li>
+		<li><a onclick="List_Click(this, 'science')" href="faculty/science/year1/year1.html">Faculty Of Science</a></li>
+		<li><a href="bisadd/year1/index.html">Faculty Of Law</a></li>
+	</ul>
+</div>
+<hr />
+<div class="future_info">Other faculties will be available soon</div>
+<hr />
+</body>
+
+</html>
