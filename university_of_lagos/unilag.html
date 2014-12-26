@@ -1,45 +1,65 @@
 <!DOCTYPE html>
+
+<?php 
+
+include("../php/page session.php");
+GetUserSchoolPrefrence("university_of_lagos");
+
+?>
+
 <html>
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <title>Unilag Materials</title>
 
-<link rel="stylesheet" type="text/css" href="http://layoutandtemplates.github.io/css/universitymaterials.css" />
-<script type="text/javascript" src="http://layoutandtemplates.github.io/js/page_session.js"></script>
+<script type="text/javascript" src="../js/page session.js"></script>
 
 <script>
-function List_Click(sender, f)
-{
-	Faculty.GetUserPrefrence(f);
-}
+School.GetUserPrefrence("University_of_lagos");
 </script>
+
+<link rel="stylesheet" type="text/css" href="../css/universitymaterials.css" />
 
 
 </head>
 
 <body>
-<div class="header">
-	<div class="title">Select Faculty</div>
-	<div class="marker">
-		<div class="marker_school"><a href="../index.html">University of lagos<span class="top_img">^</a></div>
-	</div>
-	<div class="rule"></div>
-</div>
-<div class="container">
-	<ul class="contained_list">
-		<li><a href="medicine/year1/index.html">College Of Medicine</a></li>
-		<li><a href="bissadd/year1/index.html">Faculty Of Business Administration</a></li>
-		<li><a href="engineering/year1/index.html">Faculty Of Education</a></li>
-		<li><a href="engineering/year1/index.html">Faculty Of Engineering</a></li>
-		<li><a href="bissadd/year1/index.html">Faculty Of Environmental Science</a></li>
-		<li><a onclick="List_Click(this, 'science')" href="faculty/science/year1/year1.html">Faculty Of Science</a></li>
-		<li><a href="bisadd/year1/index.html">Faculty Of Law</a></li>
-	</ul>
-</div>
-<hr />
-<div class="future_info">Other faculties will be available soon</div>
-<hr />
+<table class="body">
+	<thead class="header">
+		<tr>
+		<td class="title">Select Faculty</td>
+		</tr>
+		<tr class="marker">
+			<td class="marker_school"><a onclick="School.DeleteUserPrefrence();" href="../clear_school.php">University of Lagos<span class="top_img"><img alt="^" src="../img/up.png"/></span></a></td>
+		</tr>
+	</thead>
+	<tbody class="container">
+		<tr>
+		<td>
+			<ul class="contained_list">
+				<li><a href="science/100 level/fsc.php">College Of Medicine</a></li>
+				<!--<li><a href="bissadd/year1/index.html">Faculty Of Business Administration</a></li>-->
+				<li><a href="science/100 level/fsc.php">Faculty Of Education</a></li>
+				<li><a href="science/100 level/fsc.php">Faculty Of Engineering</a></li>
+				<!--<li><a href="bissadd/year1/index.html">Faculty Of Environmental Science</a></li>-->
+				<li><a href="science/100 level/fsc.php">Faculty Of Science</a></li>
+				<!--<li><a href="bisadd/year1/index.html">Faculty Of Law</a></li>-->
+			</ul>
+		</td>
+		</tr>
+	</tbody>
+	<tfoot class="footer">
+		<tr>
+		<td>
+			<hr />
+			<div class="future_info">Other faculties will be available soon</div>
+			<hr />
+		</td>
+		</tr>
+	</tfoot>
+</table>
+<script src="../js/scrollable_tbody.js"></script>
 </body>
 
 </html>
