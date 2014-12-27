@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<?php 
+
+include("../../../php/page session.php");
+GetUserFacultyPrefrence("science");
+
+?>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Unilag Materials - FSC</title>
+
+<script type="text/javascript" src="http://layoutandtemplates/js/page session.js"></script>
+
+<script>
+Faculty.GetUserPrefrence("science");
+</script>
+
+<link rel="stylesheet" type="text/css" href="http://layoutandtemplates/css/universitymaterials.css" />
+
+</head>
+
+<body>
+<table class="body">
+	<thead class="header">
+		<tr>
+			<td class="title">Select Course</td>
+		</tr>
+		<tr class="marker">
+		<td>
+			<span class="marker_school"><a onclick="School.DeleteUserPrefrence()" href="../../../clear_school.php">University of Lagos<span style="display: " class="top_img"><img alt="^" src="../../../img/up.png"/></span></a></span>
+			<span class="marker_faculty"><a onclick="Faculty.DeleteUserPrefrence()" href="../../../clear_faculty.php"><span style="display: " class="drop_img"><img alt="^" src="../../../img/drop.png"/></span>FSC</a></span>
+		</td>
+		</tr>
+	</thead>
+	<tbody class="container">
+		<tr><td>
+		<ul class="contained_list">
+			<li><a href="medicine/year1/index.html">FSC 101 - Biology</li></a></li>
+			<li><a href="bissadd/year1/index.html">FSC 102 - Chemistry</a></li>
+			<li><a href="csc/fsc103/fsc103.html">FSC 103 - Computer</a></li>
+			<li><a href="engineering/year1/index.html">FSC 104 - Mathematics</a></li>
+			<li><a href="bissadd/year1/index.html">FSC 105 - Physics</a></li>
+			<li><a href="science/year1/index.html">ZLY 101 - Zoology</a></li>
+		</ul>
+		</td></tr>
+	</tbody>
+	<tfoot class="footer">
+		<tr><td>
+			<hr />
+			<div class="future_info">Other courses will be available soon</div>
+			<hr />
+		</td></tr>
+	</tfoot>
+</table>
+</body>
+
+</html>
